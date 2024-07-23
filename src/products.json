@@ -1,0 +1,65 @@
+{
+    "products": [
+      {
+        "id": 1,
+        "name": "iPhone 13 Pro",
+        "description": "The latest iPhone with A15 Bionic chip and ProMotion display.",
+        "price": 999
+      },
+      {
+        "id": 2,
+        "name": "Samsung Galaxy S21",
+        "description": "High-end smartphone with Exynos 2100 and 120Hz AMOLED display.",
+        "price": 799
+      },
+      {
+        "id": 3,
+        "name": "MacBook Pro 16",
+        "description": "Powerful laptop with M1 Pro chip and Liquid Retina XDR display.",
+        "price": 2499
+      },
+      {
+        "id": 4,
+        "name": "Dell XPS 13",
+        "description": "Ultra-portable laptop with 11th Gen Intel Core processors and InfinityEdge display.",
+        "price": 999
+      },
+      {
+        "id": 5,
+        "name": "Sony WH-1000XM4",
+        "description": "Industry-leading noise canceling headphones with Alexa voice control.",
+        "price": 349
+      },
+      {
+        "id": 6,
+        "name": "Apple Watch Series 7",
+        "description": "The most advanced Apple Watch with larger, always-on Retina display.",
+        "price": 399
+      },
+      {
+        "id": 7,
+        "name": "Amazon Echo Dot",
+        "description": "Smart speaker with Alexa and improved sound quality.",
+        "price": 49
+      },
+      {
+        "id": 8,
+        "name": "Google Nest Hub",
+        "description": "Smart display with Google Assistant and ambient EQ.",
+        "price": 89
+      },
+      {
+        "id": 9,
+        "name": "PlayStation 5",
+        "description": "Next-gen gaming console with ultra-high-speed SSD and 4K graphics.",
+        "price": 499
+      },
+      {
+        "id": 10,
+        "name": "Xbox Series X",
+        "description": "The fastest, most powerful Xbox ever with 12 teraflops of processing power.",
+        "price": 499
+      }
+    ]
+  }
+  

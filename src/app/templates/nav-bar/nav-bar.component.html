@@ -1,0 +1,37 @@
+<nav>
+    <div class="row h-100">
+        <div class="col-sm-2 offset-lg-1 ">
+            <div class="row h-100">
+                <div class="col-sm-3 d-flex align-items-center">
+                    <img src="favicon.ico">
+                </div>
+                <div class="col-sm d-flex align-items-center">
+                    <h3>Proshore</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4 offset-lg-1 d-flex align-items-center">
+            <div class="row center-header-menu">
+                <div class="col-sm px-1">
+                    <a class="d-flex justify-content-center text-decoration-none" routerLinkActive="active-link" routerLink="/" [ngClass]="{'active': emptyurl.isActive}">Home</a>
+                    <a style="display: none;" routerLinkActive routerLink="/home" #emptyurl="routerLinkActive">Home</a>
+                </div>
+                <div class="col-sm px-1">
+                    <a class="d-flex justify-content-center text-decoration-none" routerLinkActive="active-link" routerLink="#">Wishlist</a>
+                </div>
+                <div class="col-sm px-1">
+                    <a class="d-flex justify-content-center text-decoration-none" routerLinkActive="active-link" routerLink="#">Cart</a>
+                </div>
+                <div class="col-sm px-1">
+                    <a class="d-flex justify-content-center text-decoration-none" routerLinkActive="active-link" routerLink="#">Contact</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm d-flex align-items-center justify-content-end">
+            <div class="search-container h-75 d-flex align-items-center justify-content-center" (click)="toggleSearch()" [ngClass]="isExpanded ? 'showinput' : 'squared'">
+                <input type="text" class="search-input" placeholder="Search..." *ngIf="isExpanded">
+                <i class="fa fa-search"></i>
+              </div>
+        </div>
+    </div>
+</nav>
