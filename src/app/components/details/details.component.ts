@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { Observable, Subscription, switchMap } from 'rxjs';
 import { ProductService } from '../../services/product.service';
 import { IProduct } from '../../models/product.model';
@@ -8,7 +8,7 @@ import { CurrencyFormatPipe } from '../../pipes/currency-format.pipe';
 @Component({
   selector: 'app-details',
   standalone: true,
-  imports: [CurrencyFormatPipe],
+  imports: [RouterModule,CurrencyFormatPipe],
   templateUrl: './details.component.html',
   styleUrl: './details.component.css'
 })

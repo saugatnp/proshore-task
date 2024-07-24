@@ -1,44 +1,56 @@
 <nav>
     <div class="row h-100">
-        <div class="col-xs-12 col-sm-4 col-xl-2 offset-xl-1 ">
-            <div class="row h-100">
-                <div class="col-sm-3 d-flex align-items-center">
-                    <img src="favicon.ico">
+
+
+        <div class="col-12 col-sm-4 col-xl-2 offset-xl-1 ">
+            <a href="/" class="text-decoration-none text-dark">
+                <div class="row h-100">
+                    <div class="col col-md-3 d-flex align-items-center">
+                        <img src="favicon.ico">
+                    </div>
+                    <div class="col col-md d-flex align-items-center">
+                        <p class="fs-3 m-0">Proshore</p>
+                    </div>
                 </div>
-                <div class="col-sm d-flex align-items-center">
-                    <p class="fs-3 m-0">Proshore</p>
-                </div>
-            </div>
+            </a>
         </div>
-        <div class="col-xs-12 col-sm-8 col-xl-4 offset-xl-1 d-flex align-items-center">
+
+
+
+        <div class="col-12 col-sm-8 col-xl-4 offset-xl-1 d-flex align-items-center">
             <div class="row center-header-menu">
-                <div class="col-sm px-1">
-                    <a class="d-flex justify-content-center text-decoration-none" routerLinkActive="active-link"
+                <div class="col px-1">
+                    <a class="d-flex justify-content-center text-decoration-none" routerLinkActive="active-link" [routerLinkActiveOptions]="{ exact: true }"
                         routerLink="/" [ngClass]="{'active': emptyurl.isActive}">Products</a>
-                    <a style="display: none;" routerLinkActive routerLink="/products"
+                    <a style="display: none;" routerLinkActive routerLink="/products" [routerLinkActiveOptions]="{ exact: true }"
                         #emptyurl="routerLinkActive">Products</a>
                 </div>
-                <div class="col-sm px-1">
+                <div class="col px-1">
                     <a class="d-flex justify-content-center text-decoration-none" routerLinkActive="active-link"
-                        routerLink="#">Wishlist</a>
+                        routerLink="/product/add">Add Product</a>
                 </div>
-                <div class="col-sm px-1">
+                <div class="col px-1">
                     <a class="d-flex justify-content-center text-decoration-none" routerLinkActive="active-link"
                         routerLink="#">Cart</a>
                 </div>
-                <div class="col-sm px-1">
+                <div class="col px-1">
                     <a class="d-flex justify-content-center text-decoration-none" routerLinkActive="active-link"
                         routerLink="#">Contact</a>
                 </div>
             </div>
         </div>
-        <div class="col-xs-12 col-sm col-xl-4 d-xl-flex align-items-center justify-content-end" style="position: relative;">
-            <div class="search-container h-75 d-flex align-items-center justify-content-center " (click)="toggleSearch()"
-                [ngClass]="isExpanded ? 'showinput' : 'squared'">
-                <input type="text" class="search-input" placeholder="Search..." *ngIf="isExpanded"
-                    [formControl]="searchControl" (keydown.enter)="emitSearchTerm()">
+
+
+
+        <div class="col-xs-12 col-sm col-xl-4 d-xl-flex align-items-center justify-content-end"
+            style="position: relative;">
+            <div class="search-container h-75 d-flex align-items-center justify-content-center showinput">
+                <input type="text" class="search-input" placeholder="Search..." [formControl]="searchControl"
+                    (keydown.enter)="emitSearchTerm()">
                 <i class="fa fa-search" (click)="emitSearchTerm()"></i>
-                <div class="search-dropdown" *ngIf="isExpanded && products.length > 0 && searchControl.value?.trim().length > 0">
+
+
+                <div class="search-dropdown" *ngIf="products.length > 0 && searchControl.value?.trim().length > 0">
                     <p-orderList [value]="products" [listStyle]="{ height: '25rem' }">
                         <ng-template let-product pTemplate="item">
                             <div class="row" (dblclick)="navigateToProductDetails(product)">
@@ -55,7 +67,12 @@
                         </ng-template>
                     </p-orderList>
                 </div>
+
+
             </div>
         </div>
+
+
+
     </div>
 </nav>

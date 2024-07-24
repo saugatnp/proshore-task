@@ -6,11 +6,16 @@ import { Subject } from 'rxjs';
 })
 export class SearchService {
 
-  private searchTerms = new Subject<string>();
+  private searchText = new Subject<string>();
 
-  searchTerms$ = this.searchTerms.asObservable();
+  //observable
+  searchText$ = this.searchText.asObservable();
 
+  /**
+   * 
+   * @param term the text entered by user which is used to filter the products
+   */
   emitSearchTerm(term: string): void {
-    this.searchTerms.next(term);
+    this.searchText.next(term);
   }
 }

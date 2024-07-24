@@ -29,4 +29,11 @@ export const routes: Routes = [
                 (m) => m.EditComponent
             ),
     },
+    {
+        path: 'product/add',
+        loadComponent: () =>
+            import('../app/components/add/add.component').then(
+                (m) => m.AddComponent
+            ),
+    },
 ];

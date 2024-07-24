@@ -22,6 +22,12 @@ export class ProductCardComponent {
     private router: Router
   ) { }
 
+
+  /**
+   * 
+   * @param id id of the product to navigate to the product details page
+   * navigates to the product details page when user clicks on the product card
+   */
   navigateToProductDetails(id : number){
     this.router.navigate(['/products', this.product.id]);
   }

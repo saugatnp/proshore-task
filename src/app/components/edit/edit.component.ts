@@ -23,6 +23,11 @@ export class EditComponent {
     private productService: ProductService
   ) { }
 
+
+
+  /**
+   * gets id from the parameter and fetches the product details based on the id
+   */
   ngOnInit(): void {
     this.productId = +this.route.snapshot.paramMap.get('id')!;
     this.createForm();
@@ -37,6 +42,10 @@ export class EditComponent {
     });
   }
 
+
+  /**
+   * creates a reactive form for editing the product with validations
+   */
   createForm(): void {
     this.editProductForm = this.fb.group({
       name: ['', Validators.required],
@@ -45,6 +54,10 @@ export class EditComponent {
     });
   }
 
+
+  /**
+   * updates the product details if the provided form is valid
+   */
   onSubmit(): void {
     if (this.editProductForm.valid) {
       const updatedProduct = { ...this.product, ...this.editProductForm.value };

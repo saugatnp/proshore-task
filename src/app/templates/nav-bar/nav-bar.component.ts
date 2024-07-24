@@ -18,10 +18,13 @@ import { SearchService } from '../../services/search.service';
 })
 export class NavBarComponent {
 
-  isExpanded: boolean = false;
   searchControl = new FormControl();
   products: Array<IProduct> = new Array<IProduct>();
 
+  /**
+   * 
+   * tracks the change in search input value and filters the product to list in the dropdown of the search bar
+   */
   constructor(
     private router: Router,
     private productService: ProductService,
@@ -39,6 +42,10 @@ export class NavBarComponent {
     });
   }
 
+
+  /**
+   * emits the search term to the search service and navigates to the products page if the current route is not products page
+   */
   emitSearchTerm() {
     if (this.router.url !== '/products' && this.router.url !== '/') {
       this.router.navigate(['/products/']);
@@ -52,17 +59,16 @@ export class NavBarComponent {
   }
 
 
+  /**
+   * 
+   * @param product product id whose details is to be shown in the details page
+   * navigate to product details page when the user double clicks on the dropdown item in the search bar
+   */
   navigateToProductDetails(product: IProduct) {
     this.searchControl.reset();
     this.router.navigate(['/products', product.id]);
   }
 
 
-  toggleSearch() {
-    this.isExpanded = true;
-  }
 
-  collapseSearch() {
-    this.isExpanded = false;
-  }
 }

@@ -27,9 +27,12 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
 
+  /**
+   * intially fetch all the product on the page load but if the search term is provided then filter the products based on the search term
+   */
   ngOnInit(): void {
     this.subscription.add(
-      this.searchService.searchTerms$.pipe(
+      this.searchService.searchText$.pipe(
         startWith(''),
         switchMap((term: string) => {
           if (term.trim() === '') {
@@ -50,12 +53,19 @@ export class HomeComponent implements OnInit, OnDestroy {
     );
   }
 
+
+  /**
+   * 
+   * @param term search term to filter the products
+   */
   fetchProducts(term: string): void {
     this.productService.filterProducts('name', term).subscribe(products => {
       this.products = products;
     });
   }
 
+
+  
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }

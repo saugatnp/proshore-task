@@ -4,10 +4,12 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'currencyFormat',
   standalone: true
 })
-export class CurrencyFormatPipe implements PipeTransform {
 
+/**
+ * converts the provided currency to the format $ 0.00
+ */
+export class CurrencyFormatPipe implements PipeTransform {
   transform(value: number): string {
     return '$ ' + value.toFixed(2);
   }
-
 }
