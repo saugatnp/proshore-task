@@ -1,50 +1,105 @@
 nav {
-    position: static;
-    top:0;
-    height: 80px;
+    position: sticky;
+    top: 0;
+    height: auto;
     background-color: rgb(248, 248, 248);
     width: 100%;
     padding: 10px 40px;
+    border-bottom: 1px solid lightgrey;
 }
-.center-header-menu{
+
+.center-header-menu {
     width: 100%;
     border: 1px solid lightgrey;
     border-radius: 20px;
     margin: 5px;
-    padding:3px 0px;
+    padding: 3px 0px;
     height: 40px;
     display: flex;
     align-items: center;
 }
-.center-header-menu div a{
+
+.center-header-menu div a {
     color: rgb(71, 71, 71) !important;
     font-size: 1.1em;
 }
-.active-link{
-    background-color:rgb(216, 216, 216);
+
+.active-link {
+    background-color: rgb(216, 216, 216);
     border-radius: 20px;
     font-weight: 600;
 }
-.search-container{
+
+.search-container {
     background-color: white;
     border: 1px solid lightgrey;
     padding: 5px;
     border-radius: 10px;
     cursor: pointer;
 }
-.squared{
+
+.squared {
     aspect-ratio: 1 / 1;
 }
-.showinput{
+
+.showinput {
     width: 80%;
 }
-.showinput input{
+
+@media screen and (max-width: 1200px) {
+    .search-container {
+        width: 100%;
+    }
+    .squared {
+        aspect-ratio: unset;
+        margin-top:10px;
+        height: auto !important;
+    }
+    .showinput{
+        margin-top:10px;
+    }
+    
+}
+
+.showinput input {
     width: 100%;
     border: none;
 }
-.showinput input:focus{
+
+.showinput input:focus {
     outline: none;
 }
-.showinput i{
+
+.showinput i {
     margin: 0px 10px;
+}
+
+.search-img {
+    width: 100%;
+    height: auto;
+}
+
+.prod p {
+    margin: 0;
+}
+
+.prod .prod-name {
+    font-size: 0.8rem;
+}
+
+.prod .prod-desc {
+    font-size: 0.6rem;
+}
+
+.prod .prod-price {
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.search-dropdown {
+    position: absolute;
+    top: 55px;
+    right: 0;
+    width: 80%;
+    z-index: 999;
 }

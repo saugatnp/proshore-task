@@ -1,7 +1,14 @@
 <div class="row p-4">
-   @for (item of products; track $index) {
-    <div class="col-sm-3">
-        <app-product-card></app-product-card>
+    @if(filteredBy != ''){
+    <div class="row">
+        <div class="col-sm">
+            Search result for : <b>{{ filteredBy }}</b>
+        </div>
     </div>
-   }
+    }
+    @for (item of products; track $index) {
+    <div class="col-sm-2 mt-4">
+        <app-product-card [product]="item"></app-product-card>
+    </div>
+    }
 </div>

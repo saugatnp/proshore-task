@@ -1,1 +1,14 @@
-<p>details works!</p>
+@if(product){
+<div class="row">
+    <div class="col-lg-5 offset-lg-1">
+        <img src="https://primefaces.org/cdn/primeng/images/card-ng.jpg" alt="Card" class="img-fluid" />
+    </div>
+    <div class="col-lg">
+        <h2>{{ product.name }}</h2>
+        <br />
+        <p>{{ product.description }}</p>
+        <br />
+        <h5><b>{{ product.price | currencyFormat }}</b></h5>
+    </div>
+</div>
+}

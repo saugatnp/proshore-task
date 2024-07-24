@@ -9,10 +9,24 @@ export const routes: Routes = [
             ),
     },
     {
-        path: 'home',
+        path: 'products',
         loadComponent: () =>
             import('../app/components/home/home.component').then(
                 (m) => m.HomeComponent
+            ),
+    },
+    {
+        path: 'products/:id',
+        loadComponent: () =>
+            import('../app/components/details/details.component').then(
+                (m) => m.DetailsComponent
+            ),
+    },
+    {
+        path: 'products/:id/edit',
+        loadComponent: () =>
+            import('../app/components/edit/edit.component').then(
+                (m) => m.EditComponent
             ),
     },
 ];

@@ -1,8 +1,10 @@
-<div class="card mt-4">
-    <img src="https://via.placeholder.com/250" class="card-img-top" alt="...">
-    <div class="card-body">
-        <h5 class="card-title">Product Name</h5>
-        <p class="card-text">Product Description</p>
-        <a href="#" class="btn btn-primary">Add to Cart</a>
-    </div>
+<div class="flex justify-content-center h-100" appHighlight (click)="navigateToProductDetails(product.id)">
+    <p-card class="h-100" header="{{product.name}}" subheader="{{product.price | currencyFormat}}">
+        <ng-template pTemplate="header">
+            <img alt="Card" src="https://primefaces.org/cdn/primeng/images/card-ng.jpg" />
+        </ng-template>
+        <p>
+            {{product.description}}
+        </p>
+    </p-card>
 </div>

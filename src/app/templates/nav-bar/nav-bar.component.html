@@ -1,37 +1,61 @@
 <nav>
     <div class="row h-100">
-        <div class="col-sm-2 offset-lg-1 ">
+        <div class="col-xs-12 col-sm-4 col-xl-2 offset-xl-1 ">
             <div class="row h-100">
                 <div class="col-sm-3 d-flex align-items-center">
                     <img src="favicon.ico">
                 </div>
                 <div class="col-sm d-flex align-items-center">
-                    <h3>Proshore</h3>
+                    <p class="fs-3 m-0">Proshore</p>
                 </div>
             </div>
         </div>
-        <div class="col-sm-4 offset-lg-1 d-flex align-items-center">
+        <div class="col-xs-12 col-sm-8 col-xl-4 offset-xl-1 d-flex align-items-center">
             <div class="row center-header-menu">
                 <div class="col-sm px-1">
-                    <a class="d-flex justify-content-center text-decoration-none" routerLinkActive="active-link" routerLink="/" [ngClass]="{'active': emptyurl.isActive}">Home</a>
-                    <a style="display: none;" routerLinkActive routerLink="/home" #emptyurl="routerLinkActive">Home</a>
+                    <a class="d-flex justify-content-center text-decoration-none" routerLinkActive="active-link"
+                        routerLink="/" [ngClass]="{'active': emptyurl.isActive}">Products</a>
+                    <a style="display: none;" routerLinkActive routerLink="/products"
+                        #emptyurl="routerLinkActive">Products</a>
                 </div>
                 <div class="col-sm px-1">
-                    <a class="d-flex justify-content-center text-decoration-none" routerLinkActive="active-link" routerLink="#">Wishlist</a>
+                    <a class="d-flex justify-content-center text-decoration-none" routerLinkActive="active-link"
+                        routerLink="#">Wishlist</a>
                 </div>
                 <div class="col-sm px-1">
-                    <a class="d-flex justify-content-center text-decoration-none" routerLinkActive="active-link" routerLink="#">Cart</a>
+                    <a class="d-flex justify-content-center text-decoration-none" routerLinkActive="active-link"
+                        routerLink="#">Cart</a>
                 </div>
                 <div class="col-sm px-1">
-                    <a class="d-flex justify-content-center text-decoration-none" routerLinkActive="active-link" routerLink="#">Contact</a>
+                    <a class="d-flex justify-content-center text-decoration-none" routerLinkActive="active-link"
+                        routerLink="#">Contact</a>
                 </div>
             </div>
         </div>
-        <div class="col-sm d-flex align-items-center justify-content-end">
-            <div class="search-container h-75 d-flex align-items-center justify-content-center" (click)="toggleSearch()" [ngClass]="isExpanded ? 'showinput' : 'squared'">
-                <input type="text" class="search-input" placeholder="Search..." *ngIf="isExpanded">
-                <i class="fa fa-search"></i>
-              </div>
+        <div class="col-xs-12 col-sm col-xl-4 d-xl-flex align-items-center justify-content-end" style="position: relative;">
+            <div class="search-container h-75 d-flex align-items-center justify-content-center " (click)="toggleSearch()"
+                [ngClass]="isExpanded ? 'showinput' : 'squared'">
+                <input type="text" class="search-input" placeholder="Search..." *ngIf="isExpanded"
+                    [formControl]="searchControl" (keydown.enter)="emitSearchTerm()">
+                <i class="fa fa-search" (click)="emitSearchTerm()"></i>
+                <div class="search-dropdown" *ngIf="isExpanded && products.length > 0 && searchControl.value?.trim().length > 0">
+                    <p-orderList [value]="products" [listStyle]="{ height: '25rem' }">
+                        <ng-template let-product pTemplate="item">
+                            <div class="row" (dblclick)="navigateToProductDetails(product)">
+                                <div class="col-sm-3">
+                                    <img src="https://primefaces.org/cdn/primeng/images/card-ng.jpg"
+                                        [alt]="product.name" class="search-img" />
+                                </div>
+                                <div class="col-sm prod">
+                                    <p class="prod-name">{{ product.name }}</p>
+                                    <p class="prod-desc">{{ product.description }}</p>
+                                    <p class="prod-price">{{ product.price | currencyFormat }}</p>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </p-orderList>
+                </div>
+            </div>
         </div>
     </div>
 </nav>
